@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Sandro Donizeti Gomes</title>
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #202020;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    main {
+      margin-top: 20px;
+    }
+    input {
+      width: 60%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 8px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: red;
+      color: white;
+      cursor: pointer;
+    }
+    iframe {
+      margin-top: 20px;
+      width: 80%;
+      height: 450px;
+      border: none;
+    }
+  </style> -->
+</head>
+<body>
+
+  <header>🎥 Yoyoutube do Sandro</header>
+
+  <main>
+    <input type="text" id="videoURL" placeholder="Cole o link do vídeo (YouTube, Vimeo...)">
+    <button onclick="carregarVideo()">Abrir</button>
+    <br>
+    <iframe id="player" allowfullscreen></iframe>
+  </main>
+
+  <script>
+    function carregarVideo() {
+      let url = document.getElementById("videoURL").value.trim();
+      let player = document.getElementById("player");
+
+      // Se for link do YouTube, converte para embed
+      if (url.includes("youtube.com/watch?v=") || url.includes("youtu.be/")) {
+        url = url.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/");
+      }
+
+      // Abre no iframe
+      player.src = url;
+    }
+  </script>
+
+</body>
+</html>
